@@ -8,11 +8,11 @@ before_install:
   - git clone --recursive https://github.com/frankj2222/DualBootPatcher -b master DualBootPatcher/
   # Pull docker images
   - docker pull yshalsager/dualbootpatcher:9.3.0-7-base
+  - docker pull yshalsager/dualbootpatcher:9.3.0-7-mingw
 script:
   # Make work directories 
   - mkdir $HOME/.android
   - mkdir -p ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/ && cd ${TRAVIS_BUILD_DIR}/DualBootPatcher/
-  # Build APK
     # Build Linux
     cmake .. -DMBP_BUILD_TARGET=desktop -DMBP_PORTABLE=ON && make -j16 && cpack
     exit
@@ -20,7 +20,7 @@ script:
 after_success:
   - export TRAVIS_CURRENT_DATE=$(date +"%d%m%y-%Hh%Mm")
   # Check output & md5sum
-  - ls -l ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/DualBootPatcher-9.3.0-Linux.zip
-  - md5sum ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/DualBootPatcher-9.3.0-Linux.zip
+  - ls -l ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/DualBootPatcher-9.3.0-mingw.zip
+  - md5sum ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/DualBootPatcher-9.3.0-mingw.zip
   # Upload to transfer.sh
 - cd ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/ && curl --upload-file ./DualBootPatcher-9.3.0-Linux.zip https://transfer.sh/DualBootPatcher-9.3.0-${TRAVIS_CURRENT_DATE}-Linux.zip
