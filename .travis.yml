@@ -13,7 +13,7 @@ script:
   # Make work directories 
   - mkdir $HOME/.android
   - mkdir -p ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/ && cd ${TRAVIS_BUILD_DIR}/DualBootPatcher/
-    # Build Linux
+   # Build Linux
     cmake .. -DMBP_BUILD_TARGET=desktop -DMBP_PORTABLE=ON && make -j16 && cpack
     exit
     EOF
