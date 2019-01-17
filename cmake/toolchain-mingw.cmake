@@ -1,8 +1,8 @@
 # Based on http://pkgs.fedoraproject.org/cgit/mingw-filesystem.git/tree/Toolchain-mingw64.cmake?id=fcb9178d
 # and https://aur.archlinux.org/packages/mingw-w64-cmake/
 
-set(MINGW_TRIPLET @MINGW_TRIPLET@)
-set(MINGW_ROOT_PATH @MINGW_ROOT_PATH@)
+set(MINGW_TRIPLET /usr/bin/i686-w64-mingw32)
+set(MINGW_ROOT_PATH /usr)
 
 set(CMAKE_SYSTEM_NAME Windows)
 
@@ -18,7 +18,7 @@ set(CMAKE_C_COMPILER ${MINGW_TRIPLET}-gcc)
 set(CMAKE_CXX_COMPILER ${MINGW_TRIPLET}-g++)
 
 # where is the target environment
-set(CMAKE_FIND_ROOT_PATH ${MINGW_ROOT_PATH})
+set(CMAKE_FIND_ROOT_PATH ${MINGW_ROOT_PATH}/i686-w64-mingw32/sys-root/mingw)
 
 # search for programs in the build host directories
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
