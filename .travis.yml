@@ -19,7 +19,7 @@ script:
 - |
   docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/builder/DualBootPatcher:rw,z" -v "${HOME}/.android:/builder/.android:rw,z" yshalsager/dualbootpatcher:9.3.0-7-mingw bash << EOF
   # Build Utilities Zip
-  cd ~/DualBootPatcher/builder && cmake .. -DMBP_BUILD_TARGET=desktop -DMBP_PORTABLE=ON && make -j16 && cpack
+  cd ~/DualBootPatcher/builder && cmake .. -DMBP_BUILD_TARGET=desktop -DMBP_PORTABLE=ON -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain-mingw.cmake && make -j16 && cpack
   exit
   EOF
 after_success:
