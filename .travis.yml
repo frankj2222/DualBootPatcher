@@ -1,3 +1,4 @@
+
 sudo: required
 
 services:
@@ -5,7 +6,7 @@ services:
 
 before_install:
   # Clone DualBootPatcher Repository
-  - git clone --recursive https://github.com/yshalsager/DualBootPatcher -b master DualBootPatcher/
+  - git clone --recursive https://github.com/frankj2222/DualBootPatcher -b master DualBootPatcher/
   # Pull docker images
   - docker pull yshalsager/dualbootpatcher:9.3.0-7-base
   - docker pull yshalsager/dualbootpatcher:9.3.0-7-android
@@ -50,8 +51,6 @@ deploy:
   provider: releases
   api_key:
     secure: HdHjUAHbDIcXAIvmBhJU0OTrBpGn7fy6aPkLHF/X99qkuUvDYMM+OPyj//R3elX04pnWIHSs4r3ffGGwj+EJ5mnvkqJYVW2Svi7MJZJLCooYCCJ5r7HjhLq0EtdmU4Ea1ieNuH6niM9RYqKsv+/1d+Hxjw9JfJ6asfqCqXTJiTETEKO2//QDXMw8iRag0XG1Be52/hGhfBVbvgvaOlxTCxjycnC9X1zru+CiFf0qe2BK/xfA8QxZ6J3lHLr8W4/LsMg2450vLfljyqO8clPzH95qAkuKfZPj/+MkLeyIGWUfUHSzY/NkbRJxmpmCqRDQVBNXTAjVwSBr28XqevjL1W45rMjog5DbObYEv4BIocRjeNQ7saVwC0l7ox+KwClcTlMcJTwGVoHJj1ueWIfL0i8aoGMymyAxDfe3ccT/cLdmRvfP1xFczENSjSt76px/rS52D40mZ3vf6GZUtCWOrVtOiX+Cjsoq8FiJ02sIT46QPcsORgVxo24UcLtirdXV5Ok6zg/O3yJYFPFkmX55S8aSoDR4qt3ZGxsxXdUAm4pjuuqDZ1KDEYWD2zcb6NXQ+YcRb8TxWUuMr2sPVl1kOteUgjZmmLCsOYdyTcp8YyanySo3C4jj4TDbJ3N5W1amsIlQ56+hLsR1YYPMY0NpZtTzdJgbUCn/bC3AnvF7q/s=
-  file: DualBootPatcher-9.3.0-Linux.zip
   file: Android_GUI-debug.apk
-  file: DualBootUtilities-9.3.0.zip
-  on:
-    repo: frankj2222/DualBootPatcher
+on:
+  repo: frankj2222/DualBootPatcher
