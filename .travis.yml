@@ -30,22 +30,7 @@ script:
     exit
     EOF
 after_success:
-  - export TRAVIS_CURRENT_DATE=$(date +"%d%m%y-%Hh%Mm")
-  # Check output & md5sum
-  - ls -l ${TRAVIS_BUILD_DIR}/DualBootPatcher/Android_GUI/build/outputs/apk/debug/Android_GUI-debug.apk
-  - md5sum ${TRAVIS_BUILD_DIR}/DualBootPatcher/Android_GUI/build/outputs/apk/debug/Android_GUI-debug.apk
-  - ls -l ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/utilities/DualBootUtilities-9.3.0.zip
-  - md5sum ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/utilities/DualBootUtilities-9.3.0.zip
-  - ls -l ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/DualBootPatcher-9.3.0-Linux.zip
-  - md5sum ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/DualBootPatcher-9.3.0-Linux.zip
-  # Upload to transfer.sh
-  - cd ${TRAVIS_BUILD_DIR}/DualBootPatcher/Android_GUI/build/outputs/apk/debug/ &&  curl --upload-file ./Android_GUI-debug.apk https://transfer.sh/Android_GUI-debug-${TRAVIS_CURRENT_DATE}.apk
-  - cd ${TRAVIS_BUILD_DIR}//DualBootPatcher/builder/utilities/ && curl --upload-file ./DualBootUtilities-9.3.0.zip https://transfer.sh/DualBootUtilities-9.3.0-${TRAVIS_CURRENT_DATE}.zip
-  - cd ${TRAVIS_BUILD_DIR}/DualBootPatcher/builder/ && curl --upload-file ./DualBootPatcher-9.3.0-Linux.zip https://transfer.sh/DualBootPatcher-9.3.0-${TRAVIS_CURRENT_DATE}-Linux.zip
-
-env:
-  global:
-    secure: wzgbRLdEO/oGjlNy9qJGxDcJpkUBJfKt9KrBx6nEA6fyD3ncuv8r6ukc+jtBTueqNfEW+cDN75CyB+S8sMGctluKVLdcidC/JooUfiS8l5B5V6IlTYWbuPuoxPU18WTSUpZwvqz+FbRbng2KyMzQ7s3QqxsNA0O9Z+XxjEU4gaGTHz8NJ/4BxFgjoG7eKQ2dALL82FCVq6fEhPucgJ9rzJqycjGRpi8H8fDvJlNU9mAK7aOz8ukyP43E4i/r7vhXkS08Hk1ut9aEqG4Khw3PlQqw9qMuRH1UNoSGM8MVyjBTdyLyaoLR1D+94gATRiCta/OLi1/pJEZ7xlnv7F4/y42dEqnXJFMJZq7GQ3c8qNlxc1+ABf/Kl7fEZ/ROzlvf1espXjdcKNQZdNUtYPcDQMHCphBeYMIz5vcw11FsIIM1/j1qpGOXtmzHfuIWDw7a7o8YupC8uDCvewkpqxGz10dwJVvTzzzrekbaqQRKXezLhRoVZrQJM5unrHoeb0pXSnj0MxRRWJgWykHyRTepgLVxZ7LN9yU1ZMZqtAmAyaioehh5XCGpz5Kr0X55tUjTpEKNlGfo0bW85r9pYMN6bfNfSMFSpYLGGHGPgjyL8gnXUweDztLlAxiPx/8/TG+xf+ZuVNlSnbStJL4OB8420094ylbRLvk7gvi0z1XXLIo=
+  
 deploy:
   provider: releases
   api_key:
